@@ -32,7 +32,7 @@ find "$SOURCE_DIRECTORY" -type f -name "README.md" | while read -r FILE_NAME; do
   echo "           from: $NOTE_DIR"
 
   # Make the directory that will contain the note and assets
-  mkdir "$DESTINATION_DIRECTORY/$DIR_NAME"
+  mkdir "$DESTINATION_DIRECTORY/$DIR_NAME" 2>/dev/null
 
   # Copy all files from the note directory
   find "$NOTE_DIR" -type f -exec cp {} "$DESTINATION_DIRECTORY/$DIR_NAME" \;
