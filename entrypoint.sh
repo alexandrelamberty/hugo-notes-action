@@ -21,6 +21,13 @@ find "$SOURCE_DIRECTORY" -type f -name "README.md" | while read -r FILE_NAME; do
   # Retrieve file info
   NOTE_DIR=$(dirname "$FILE_NAME")
   DIR_NAME=$(basename "$NOTE_DIR")
+
+  # Skip if the directory is the root (i.e., ".")
+  if [ "$DIR_NAME" = "." ]; then
+    echo "  - Skipping root README.md at $FILE_NAME"
+    continue
+  fi
+
   echo "  - Create note: $DIR_NAME"
   echo "           from: $NOTE_DIR"
 
