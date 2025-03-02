@@ -17,7 +17,7 @@ mkdir "$DESTINATION_DIRECTORY"
 
 echo "[+] Copy content"
 # Copy all files from the source directory
-find "$SOURCE_DIRECTORY" -type f -name "README.md" | while read -r FILE_NAME; do
+find "$SOURCE_DIRECTORY" -type f -name "README.md" -not -path "$SOURCE_DIRECTORY/content/*" | while read -r FILE_NAME; do
   # Retrieve file info
   NOTE_DIR=$(dirname "$FILE_NAME")
   DIR_NAME=$(basename "$NOTE_DIR")
